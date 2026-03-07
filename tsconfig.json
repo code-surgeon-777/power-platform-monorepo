@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "lib": ["ES2022", "DOM"],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@shared/models": ["workspaces/shared/models/src"],
+      "@shared/libraries": ["workspaces/shared/libraries/src"],
+      "@shared/services": ["workspaces/shared/services/src"],
+      "@shared/components": ["workspaces/shared/components/src"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "**/dist", "**/node_modules"]
+}

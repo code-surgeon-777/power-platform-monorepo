@@ -16,12 +16,19 @@
     "clean": "yarn workspaces foreach -A run clean",
     "clean:deep": "rm -rf node_modules */node_modules yarn.lock",
     "dev": "yarn workspaces foreach -A run dev",
-    "typecheck": "yarn workspaces foreach -A run typecheck"
+    "typecheck": "yarn workspaces foreach -A run typecheck",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.3.0",
-    "yarn": "^1.22.22"
+    "@types/node": "20.11.0",
+    "typescript": "5.3.3",
+    "yarn": "1.22.22",
+    "eslint": "8.57.0",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
+    "eslint-config-prettier": "9.1.0",
+    "prettier": "3.2.5"
   },
   "engines": {
     "node": ">=18.0.0",

@@ -1,0 +1,16 @@
+{
+  "name": "@shared/services",
+  "version": "1.0.0",
+  "description": "API clients, data fetching, and external service integrations",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'No tests configured'",
+    "lint": "echo 'No lint configured'",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3"
+  }
+}

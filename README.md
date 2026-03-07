@@ -1,10 +1,16 @@
-# TypeScript Monorepo
+# TypeScript Monorepo Template
 
-A production-ready TypeScript monorepo using Yarn Workspaces for package management and tooling.
+A production-ready, living TypeScript monorepo template using Yarn Workspaces for package management and tooling.
 
-## Description
+## Overview
 
-This monorepo provides a scalable architecture for managing multiple TypeScript packages within a single repository. It uses Yarn Workspaces for dependency management and running scripts across packages.
+This repository serves as a **living template** for TypeScript projects. It's designed to be forked for each new product or client project, providing a consistent foundation while allowing the template to evolve over time.
+
+### Key Concepts
+
+- **Living Template**: The template is continuously improved. When shared packages are updated, all forked projects can benefit from those improvements.
+- **Confidentiality**: Each fork represents a separate, confidential product. Project-specific code never leaves the fork.
+- **Yarn Workspaces**: All packages are managed as Yarn workspaces for efficient dependency sharing and unified tooling.
 
 ## Prerequisites
 
@@ -37,31 +43,91 @@ yarn install
 
 This will automatically install all dependencies for all workspaces defined in the project.
 
-## Workspace Structure
+## Template Structure
 
 ```
 typescript-monorepo/
-├── packages/                  # Workspace packages directory
-│   ├── shared/               # Shared utilities and types
-│   │   ├── src/
-│   │   ├── package.json
-│   │   └── tsconfig.json
-│   ├── core/                 # Core library
-│   │   ├── src/
-│   │   ├── package.json
-│   │   └── tsconfig.json
-│   └── ...
+├── workspaces/
+│   └── shared/               # Shared packages (reusable across products)
+│       ├── models/           # Shared types, interfaces, DTOs
+│       ├── libraries/         # Utility functions, helpers
+│       ├── services/         # API clients, data fetching logic
+│       └── components/       # Reusable UI components
 ├── package.json              # Root package.json (workspaces config)
 ├── tsconfig.json             # Root TypeScript config
 └── yarn.lock                 # Lock file
 ```
 
-### Package Responsibilities
+### Shared Package Responsibilities
 
 | Package | Description |
 |---------|-------------|
-| `shared` | Common utilities, types, and helper functions shared across packages |
-| `core` | Core business logic and main functionality |
+| `models` | Common types, interfaces, DTOs, and domain models |
+| `libraries` | Utility functions, helpers, and reusable logic |
+| `services` | API clients, data fetching, external service integrations |
+| `components` | Reusable UI components |
+
+## Using as a Template
+
+### For New Products
+
+1. **Fork this repository** for each new product
+2. **Rename the project** in root `package.json`
+3. **Add product-specific workspaces** alongside or within `workspaces/`
+
+```
+product-x/ (forked repo)
+├── workspaces/
+│   ├── shared/           # Forked from template
+│   │   ├── models/
+│   │   ├── libraries/
+│   │   ├── services/
+│   │   └── components/
+│   └── product-x/        # Product-specific workspaces
+│       ├── app/          # Main application
+│       ├── features/     # Product-specific features
+│       └── data/         # Product-specific data layer
+```
+
+### Keeping the Template Updated
+
+To pull improvements from the template into your fork:
+
+```bash
+# Add the template as a remote
+git remote add template <template-repo-url>
+
+# Fetch template changes
+git fetch template
+
+# Merge template updates into your fork
+git merge template/main
+
+# Or cherry-pick specific changes
+git cherry-pick <commit-hash>
+```
+
+## Workspace Configuration
+
+Workspaces are configured in the root `package.json`:
+
+```json
+{
+  "workspaces": {
+    "packages": ["workspaces/shared/*"]
+  }
+}
+```
+
+If adding product-specific workspaces, update the pattern:
+
+```json
+{
+  "workspaces": {
+    "packages": ["workspaces/shared/*", "workspaces/product-x/*"]
+  }
+}
+```
 
 ## Available Scripts
 
@@ -130,7 +196,7 @@ To add a new package to the monorepo:
 1. **Create the package directory**
 
 ```bash
-mkdir -p packages/my-new-package/src
+mkdir -p workspaces/shared/my-new-package/src
 ```
 
 2. **Create `package.json`**
@@ -206,7 +272,7 @@ yarn workspaces foreach -A run test
 
 ## Contributing
 
-Contributions are welcome! Please read our contributing guidelines before submitting pull requests.
+Contributions to improve the template are welcome! Please read our contributing guidelines before submitting pull requests.
 
 ### Development Workflow
 

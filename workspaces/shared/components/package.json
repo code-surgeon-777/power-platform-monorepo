@@ -1,0 +1,23 @@
+{
+  "name": "@shared/components",
+  "version": "1.0.0",
+  "description": "Reusable UI components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'No tests configured'",
+    "lint": "echo 'No lint configured'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@fluentui/react-components": "9.46.0"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18"
+  }
+}
