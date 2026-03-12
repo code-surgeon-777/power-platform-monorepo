@@ -3,6 +3,10 @@
  * Utility functions and helper libraries
  */
 
-export * from './string.utils';
-export * from './date.utils';
-export * from './validation.utils';
+// Common / Generic utilities (platform-agnostic)
+export * from './common/string.utils';
+export * from './common/date.utils';
+export * from './common/validation.utils';
+
+// Dataverse-specific utilities
+export * from './dataverse/dataverse.utils';
