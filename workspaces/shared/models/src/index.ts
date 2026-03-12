@@ -1,36 +1,15 @@
 /**
  * Shared Models Package
- * Contains types, interfaces, DTOs, and domain models
+ * Contains types, interfaces, DTOs, and domain models for Power Platform/PCF development
  */
 
-// Example: Base entity interface
-export interface Entity {
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
+// Common / Generic types
+export * from './common/dictionary';
 
-// Example: Pagination params
-export interface PaginationParams {
-  page: number;
-  limit: number;
-}
+// Dataverse entities (Core - tagged as "Core" in Dataverse)
+export * from './dataverse/entity.base';
+export * from './dataverse/account.core';
+export * from './dataverse/contact.core';
 
-// Example: Paginated response
-export interface PaginatedResponse<T> {
-  data: T[];
-  total: number;
-  page: number;
-  limit: number;
-  totalPages: number;
-}
-
-// Example: API error response
-export interface ApiError {
-  code: string;
-  message: string;
-  details?: Record<string, unknown>;
-}
-
-export * from './user.model';
-export * from './api-response.model';
+// Dataverse metadata types
+export * from './dataverse/option-set.types';
